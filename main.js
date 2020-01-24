@@ -130,6 +130,10 @@ if (!window.localStorage.getItem('questions_done')) {
   window.localStorage.setItem('questions_done', '0');
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function getPerson() {
   while (true) {
     let person = Math.floor(Math.random() * personsLength);
@@ -206,8 +210,9 @@ function selectPerson() {
 
 startBtn.addEventListener('click', () => {
   let stat = selectPerson();
-  if(stat == 1) {
+  if (stat == 1) {
     personContainer.style.setProperty('display', 'block');
+    personRandomize();
     personDiv.innerHTML = personSelected;
     startBtn.style.setProperty('display', 'none');
     questionBtn.style.setProperty('display', 'initial');
@@ -216,6 +221,7 @@ startBtn.addEventListener('click', () => {
 
 questionBtn.addEventListener('click', () => {
   questionContainer.style.setProperty('display', 'block');
+  questionRandomize();
   questionDiv.innerHTML = questionSelected;
   questionBtn.style.setProperty('display', 'none');
   restartBtn.style.setProperty('display', 'initial');
@@ -233,4 +239,26 @@ restartBtn.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   resetBtn.style.setProperty('display', 'none');
   startBtn.style.setProperty('display', 'initial');
-})
+});
+
+async function personRandomize() {
+  questionBtn.style.setProperty('visibility', 'hidden');
+  const ran = Math.floor(Math.random() * 20) + 5;
+  for (let i = 0; i < ran; i++) {
+    let person = Math.floor(Math.random() * personsLength);
+    personDiv.innerHTML = persons[person];
+    await sleep(70);
+  }
+  questionBtn.style.setProperty('visibility', 'initial');
+}
+
+async function questionRandomize() {
+  restartBtn.style.setProperty('visibility', 'hidden');
+  const ran = Math.floor(Math.random() * 20) + 5;
+  for (let i = 0; i < ran; i++) {
+    let question = Math.floor(Math.random() * questionsLength);
+    questionDiv.innerHTML = questions[question];
+    await sleep(70);
+  }
+  restartBtn.style.setProperty('visibility', 'initial');
+}
