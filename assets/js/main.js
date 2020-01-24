@@ -72,7 +72,7 @@ const questions = [
   'If you didn’t need a job, were healthy, and had plenty of time, what would you do?',
   'What do you consider your greatest achievement?',
   'What is a recent book that you have enjoyed? Why?',
-  'What would you do with your “15 minutes” of fame?',
+  'What would you do with your "15 minutes" of fame?',
   'Over the course of your life, how many cities have you lived in and which was your favorite?',
   'What was going on during the happiest time of your life?',
   'If you could only take one physical item with you on a deserted island, what it would be?',
