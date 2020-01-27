@@ -1,3 +1,5 @@
+let logo = document.getElementById('logo');
+
 let personDiv = document.getElementById('person');
 let personContainer = document.getElementById('personContainer');
 
@@ -107,10 +109,6 @@ const questions = [
   'Activity: Dance',
   'Activity: Roast'
 ];
-
-// const questions = [
-//   'Corporis nisi perspiciatis corporis tenetur. Facilis maxime molestiae tenetur in veritatis. Veniam nesciunt optio magnam rerum qui qui tempore. Molestiae et perspiciatis molestiae facere optio voluptatem. Est harum repellendus voluptatem ut assumenda. Et excepturi tenetur placeat aut qui minima odio voluptas. Iure in minus sit assumenda vitae eligendi optio rerum. Eaque saepe ut eius quisquam nemo eaque aliquam. Sunt quidem neque consectetur molestiae vel. Sed modi atque veniam. Id inventore aut similique magni velit et distinctio. Aut itaque culpa fugit dolores commodi. Impedit reiciendis delectus molestiae accusamus quo id voluptas iusto vel. Vel voluptas sed doloremque aut eos. Ea tempore aut nobis.Expedita et ut pariatur quo ipsam. Nam quae nobis. Perferendis voluptatem et quae dolorum aut itaque itaque. Earum omnis officia laudantium recusandae quia nesciunt et tenetur dolorem. Rerum eum ut vero aut autem non velit est.'
-// ];
 
 const personsLength = persons.length;
 const questionsLength = questions.length;
@@ -262,3 +260,7 @@ async function questionRandomize() {
   }
   restartBtn.style.setProperty('visibility', 'initial');
 }
+
+logo.addEventListener('dblclick', () => {
+  document.body.classList.toggle('darkMode');
+})
