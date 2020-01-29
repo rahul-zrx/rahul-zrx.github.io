@@ -27,10 +27,10 @@
       Start
     </button>
 
-    <button id="questionBtn" class="ui right labeled icon button">
+    <!-- <button id="questionBtn" class="ui right labeled icon button">
       <i class="question icon"></i>
       Get Question
-    </button>
+    </button> -->
 
     <button id="restartBtn" class="ui right labeled icon button">
       <i class="angle double right icon"></i>
@@ -42,20 +42,37 @@
       Reset
     </button>
 
-    <div id="personContainer">
+    <!-- <div id="personContainer">
       <div id="person"></div>
-    </div>
+    </div> -->
 
-    <div id="questionContainer">
-      <div id="question"></div>
+    <div id="block">
+      <div id="gridContainer">
+        <div id="questionContainer">
+          <div id="question"></div>
+        </div>
+
+        <div id="questionImageContainer">
+          <img id="questionImage" src="assets/images/zoomrx.png" alt="">
+        </div>
+        <div id="placeholderImage" class="ui placeholder">
+          <div class="image"></div>
+        </div>
+        <!-- <div id="placeholderImage" class="ui segment">
+          <p></p>
+          <div id="loaderClassElement" class="ui active loader">
+            <div class="ui massive loader"></div>
+          </div>
+        </div> -->
+      </div>
     </div>
 
   </div>
 
   <footer id="footer">
-    <img src="assets/images/zoomrx.png" alt="ZoomRx Logo" id="logo">
+    <img id="logo" src="assets/images/zoomrx.png" alt="ZoomRx Logo">
   </footer>
-  
+
   <script src="assets/js/main.js"></script>
 </body>
 

@@ -1,60 +1,45 @@
-let logo = document.getElementById('logo');
+const logo = document.getElementById('logo');
 
-// let personDiv = document.getElementById('person');
-// let personContainer = document.getElementById('personContainer');
+const block = document.getElementById('block');
+const questionDiv = document.getElementById('question');
+const questionContainer = document.getElementById('questionContainer');
+const questionImageContainer = document.getElementById('questionImageContainer');
+const questionImage = document.getElementById('questionImage');
+const placeholderImage = document.getElementById('placeholderImage');
 
-let questionDiv = document.getElementById('question');
-let questionContainer = document.getElementById('questionContainer');
+const startBtn = document.getElementById('startBtn');
+const restartBtn = document.getElementById('restartBtn');
+const resetBtn = document.getElementById('resetBtn');
 
-let startBtn = document.getElementById('startBtn');
-// let questionBtn = document.getElementById('questionBtn');
-let restartBtn = document.getElementById('restartBtn');
-let resetBtn = document.getElementById('resetBtn');
-
-// let personSelected = '';
 let questionSelected = '';
-
-// const persons = [
-//   'Rahul Singh',
-//   'Kumar Janmejay',
-//   'Mohit Kumar',
-//   'Palak',
-//   'Sunny',
-//   'Akshay',
-//   'Sushmita',
-//   'Prateek',
-//   'Ratul',
-//   'Tamil',
-//   'Siva',
-//   'Vivek',
-//   'Sunayana'
-// ];
+let questionImgURL = '';
 
 const questions = [
   'What is the perk at ZRX that you have misused the most?',
   'The zombie apocalypse is coming, who are three people you want on your team?',
-  'What\'s your best ZRX scary story?',
-  'What\'s your weirdest conversation with your manager?',
-  'Funniest incident during your journey with ZRX?',
+  "What's your best ZRX scary story?",
+  "What's your weirdest conversation with your manager?",
+  'What is you funniest incident during your journey with ZRX?', // Mohit pic
   'Whom are you most scared off at ZRX? Why?',
-  'What\'s your crazy ZRX confession?',
-  'Craziest person at work? Why?',
-  ''
+  "What's your crazy ZRX confession?",
+  'Who is the craziest person at work? Why?',
+  'What superpower do you think, every ZRXer should have?',
+  'If you are given an opportunity to remake one movie, what movie will you prefer and who, from ZRX, will be the cast?',
+  'Imitate a person in your group!',
+  'Produce any animal sound.',
+  'If you had 25 hours a day, how would you use your extra time?',
+  'Have you ever come to work without taking a shower and somebody noticed?',
+  'Who is the laziest person at work? Why?'
 ];
 
-// const personsLength = persons.length;
+const imgDir = 'assets/images/questionImages/';
+const imgURLs = ['1.jpeg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.png', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg'];
+
 const questionsLength = questions.length;
 
-if (
-  // parseInt(window.localStorage.getItem('persons_done')) == personsLength ||
-  parseInt(window.localStorage.getItem('questions_done')) == questionsLength
-) {
+if (parseInt(window.localStorage.getItem('questions_done')) == questionsLength) {
   window.localStorage.clear();
 }
-
-// if (!window.localStorage.getItem('persons_done')) {
-//   window.localStorage.setItem('persons_done', '0');
-// }
 
 if (!window.localStorage.getItem('questions_done')) {
   window.localStorage.setItem('questions_done', '0');
@@ -63,25 +48,6 @@ if (!window.localStorage.getItem('questions_done')) {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-// function getPerson() {
-//   while (true) {
-//     let person = Math.floor(Math.random() * personsLength);
-//     if (!window.localStorage.getItem(persons[person])) {
-//       window.localStorage.setItem(persons[person], '1');
-
-//       if (!window.localStorage.getItem('persons_done')) {
-//         window.localStorage.setItem('persons_done', '1');
-//       } else {
-//         window.localStorage.setItem(
-//           'persons_done',
-//           (parseInt(window.localStorage.getItem('persons_done')) + 1).toString()
-//         );
-//       }
-//       return person;
-//     }
-//   }
-// }
 
 function getQuestion() {
   while (true) {
@@ -103,34 +69,24 @@ function getQuestion() {
 }
 
 function getPersonQuestion() {
-  // if (parseInt(window.localStorage.getItem('persons_done')) >= personsLength) {
-  //   return 'No more ZoomRx-ers left';
-  // }
-
   if (parseInt(window.localStorage.getItem('questions_done')) >= questionsLength) {
     return 'No more questions left!';
   }
 
-  // const p = getPerson();
   const q = getQuestion();
-  // personSelected = persons[p];
   questionSelected = questions[q];
+  questionImgURL = imgURLs[q];
   return 1;
 }
 
 function selectPerson() {
-  // personSelected = '';
   questionSelected = '';
   let stat = getPersonQuestion();
   if (stat != 1) {
     window.localStorage.clear();
-    // personDiv.innerHTML = '';
     questionDiv.innerHTML = '';
-    // personContainer.style.setProperty('display', 'none');
-    questionContainer.style.setProperty('display', 'none');
-
+    block.style.setProperty('display', 'none');
     startBtn.style.setProperty('display', 'none');
-    // questionBtn.style.setProperty('display', 'none');
     restartBtn.style.setProperty('display', 'none');
     resetBtn.style.setProperty('display', 'initial');
     console.log('error');
@@ -143,34 +99,18 @@ startBtn.addEventListener('click', () => {
   let stat = selectPerson();
 
   if (stat == 1) {
-    // personContainer.style.setProperty('display', 'block');
-    // personRandomize();
-    // personDiv.innerHTML = personSelected;
-    // startBtn.style.setProperty('display', 'none');
-    // questionBtn.style.setProperty('display', 'initial');
-    questionContainer.style.setProperty('display', 'block');
+    block.style.setProperty('display', 'block');
     questionRandomize();
     questionDiv.innerHTML = questionSelected;
-    // startBtn.style.setProperty('display', 'initial');
-    // restartBtn.style.setProperty('display', 'initial');
+    questionImage.src = imgDir + questionImgURL;
   } else {
     console.log('ERROR!!');
   }
 });
 
-// questionBtn.addEventListener('click', () => {
-//   questionContainer.style.setProperty('display', 'block');
-//   questionRandomize();
-//   questionDiv.innerHTML = questionSelected;
-//   questionBtn.style.setProperty('display', 'none');
-//   restartBtn.style.setProperty('display', 'initial');
-// });
-
 restartBtn.addEventListener('click', () => {
-  // personDiv.innerHTML = '';
   questionDiv.innerHTML = '';
-  // personContainer.style.setProperty('display', 'none');
-  questionContainer.style.setProperty('display', 'none');
+  block.style.setProperty('display', 'none');
   restartBtn.style.setProperty('display', 'none');
   startBtn.style.setProperty('display', 'initial');
 });
@@ -180,30 +120,24 @@ resetBtn.addEventListener('click', () => {
   startBtn.style.setProperty('display', 'initial');
 });
 
-// async function personRandomize() {
-//   questionBtn.style.setProperty('visibility', 'hidden');
-//   const ran = Math.floor(Math.random() * 20) + 5;
-//   for (let i = 0; i < ran; i++) {
-//     let person = Math.floor(Math.random() * personsLength);
-//     personDiv.innerHTML = persons[person];
-//     await sleep(70);
-//   }
-//   questionBtn.style.setProperty('visibility', 'initial');
-// }
-
 async function questionRandomize() {
-  // restartBtn.style.setProperty('visibility', 'hidden');
   startBtn.style.setProperty('visibility', 'hidden');
+  questionImageContainer.style.setProperty('display', 'none');
+  placeholderImage.style.setProperty('display', 'block');
   const ran = Math.floor(Math.random() * 20) + 5;
   for (let i = 0; i < ran; i++) {
     let question = Math.floor(Math.random() * questionsLength);
     questionDiv.innerHTML = questions[question];
     await sleep(70);
   }
-  // restartBtn.style.setProperty('visibility', 'initial');
   startBtn.style.setProperty('visibility', 'initial');
+  questionImageContainer.style.setProperty('display', 'block');
+  placeholderImage.style.setProperty('display', 'none');
+  questionDiv.innerHTML = questionSelected;
 }
 
 logo.addEventListener('dblclick', () => {
   document.body.classList.toggle('darkMode');
+  document.getElementById('loaderClassElement').classList.toggle('loader');
+  // document.getElementById('loaderClassElement').classList.toggle('inverted');
 });
