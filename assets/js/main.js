@@ -138,6 +138,6 @@ async function questionRandomize() {
 
 logo.addEventListener('dblclick', () => {
   document.body.classList.toggle('darkMode');
-  document.getElementById('loaderClassElement').classList.toggle('loader');
-  // document.getElementById('loaderClassElement').classList.toggle('inverted');
+  placeholderImage.classList.toggle('inverted');
+  document.getElementById('loaderClassElement').classList.toggle('inverted');
 });
