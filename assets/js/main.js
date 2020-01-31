@@ -15,25 +15,43 @@ let questionSelected = '';
 let questionImgURL = '';
 
 const questions = [
-  'What is the perk at ZRX that you have misused the most?',
-  'The zombie apocalypse is coming, who are three people you want on your team?',
-  "What's your best ZRX scary story?",
-  "What's your weirdest conversation with your manager?",
-  'What is you funniest incident during your journey with ZRX?', // Mohit pic
-  'Whom are you most scared off at ZRX? Why?',
+  'Which perk in ZRX did you misuse the most?',
+  'The zombie apocalypse is coming, who are three ZRXers you want on your team?',
+  "What's your most embarrassing story at ZRX?",
+  "What's the weirdest conversation you had with your manager?",
+  "What's the funniest incident you witnessed at ZRX?",
+  // 'Who scares you the most at ZRX? Why?',
   "What's your crazy ZRX confession?",
-  'Who is the craziest person at work? Why?',
-  'What superpower do you think, every ZRXer should have?',
-  'If you are given an opportunity to remake one movie, what movie will you prefer and who, from ZRX, will be the cast?',
-  'Imitate a person in your group!',
-  'Produce any animal sound.',
+  'Who is the craziest person you know at ZRX? Why?',
+  'What superpower do you think every ZRXer should have?',
+  // 'If you are given an opportunity to remake one movie, what movie will you prefer and who, from ZRX, will be the cast?',
+  'Imitate a person from ZRX!',
+  'Imitate the following sounds: Lion, Wolf, Witch!',
   'If you had 25 hours a day, how would you use your extra time?',
   'Have you ever come to work without taking a shower and somebody noticed?',
-  'Who is the laziest person at work? Why?'
+  // 'Who is the laziest person you knpw at work? Why?',
+  'Dance along with this performance!'
 ];
 
 const imgDir = 'assets/images/questionImages/';
-const imgURLs = ['1.jpeg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.png', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg'];
+const imgURLs = [
+  '1.jpeg',
+  '2.jpg',
+  '3.jpg',
+  '4.jpg',
+  '5.jpg',
+  // '6.jpg',
+  '7.jpg',
+  '8.jpg',
+  '9.png',
+  // '10.jpg',
+  '11.jpg',
+  '12.jpg',
+  '13.jpg',
+  '14.jpg',
+  // '15.jpg',
+  '16.gif'
+];
 
 const questionsLength = questions.length;
 
